@@ -56,4 +56,5 @@ Open your web browser and go to `http://127.0.0.1:5000`.
 ## Usage
 
 Upload PDF: Use the file upload section on the homepage to select and upload PDF files.
+
 Get Answers: Type questions related to the PDF content and receive answers from the chatbot.
