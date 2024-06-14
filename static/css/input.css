@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --purple: #702FC4;
+    --violet: #5C00C0;
+    --pink: #ED008C;
+    --black: #08030F;
+    --black-2: #030106;
+    --dark-purple: #12061D;
+    --licorice: #0F061A;
+    --dark-purple-2: #140722;
+    --licorice-2: #0D0415;
+    --black-3: #060209;
+    --dark-purple-3: #140722;
+    --dark-purple-4: #140620;
+    --dark-purple-5: #140722;
+}
+
+.gradient {
+    animation: background-pan 3s linear infinite;
+    background: linear-gradient(to right, var(--purple), var(--violet), var(--pink), var(--purple));
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+}
+
+@keyframes background-pan {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.gradient-container {
+    background: linear-gradient(180deg, hsla(269, 93%, 50%, 1) 0%, hsla(219, 100%, 64%, 1) 100%);
+    background: -moz-linear-gradient(180deg, hsla(269, 93%, 50%, 1) 0%, hsla(219, 100%, 64%, 1) 100%);
+    background: -webkit-linear-gradient(180deg, hsla(269, 93%, 50%, 1) 0%, hsla(219, 100%, 64%, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7B09F5", endColorstr="#4586FF", GradientType=1);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.black-button {
+    background-color: black;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease;
+}
+
+.black-button:hover {
+    background-color: #333;
+}
+/* output.css */
+.answer-box {
+    background-color: #000000;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with PDF</title>
+    <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+
+<body class="bg-blackish text-white min-h-screen flex flex-col items-center justify-center">
+
+    <div class="w-full flex flex-col items-center justify-start py-8 absolute top-0 left-0 right-0">
+        <h1 class="text-3xl font-bold mb-4 gradient" style="color: white;">
+            Chat with PDF
+        </h1>
+    </div>
+
+    <div class="container mx-auto mt-20 p-4 gradient-container rounded-lg shadow-lg">
+        <form action="/process" method="post" enctype="multipart/form-data" class="mb-4">
+            <div class="mb-4">
+                <label for="pdf_files" class="block text-lg font-medium mb-4" style="color: black;">Upload your PDF Files</label>
+                <input type="file" id="pdf_files" name="pdf_files" accept="application/pdf" multiple
+                    class="block w-full text-lg text-gray-900 bg-gray-100 border border-gray-300 rounded-lg cursor-pointer focus:outline-none">
+            </div>
+            <button type="submit" class="black-button">Submit & Process</button>
+        </form>
+
+        {% if processing_complete %}
+        <div class="mt-4">
+            <p class="text-lg font-medium text-center">Processing complete. Ready to answer questions.</p>
+            <form action="/ask" method="post" class="mt-4">
+                <div class="mb-4">
+                    <label for="question" class="block text-lg font-medium">Ask a Question:</label>
+                    <textarea id="question" name="question" rows="4"
+                        class="block w-full text-lg text-gray-900 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none"
+                        placeholder="Type your question here..."></textarea>
+                </div>
+                <button type="submit" class="black-button">Submit</button>
+            </form>
+        </div>
+        {% endif %}
+
+        {% if answer %}
+        <div class="mt-4 p-4 answer-box rounded-lg">
+            <h2 class="text-xl font-semibold mb-2">Answer:</h2>
+            <p class="text-lg">{{ answer }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+
+</html>
